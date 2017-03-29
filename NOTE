@@ -1,0 +1,30 @@
+() stp is not right
+./configure --with-llvmsrc=/home/klee/llvm-3.4 --with-llvmobj=/home/klee/llvm_build0 --with-stp=/home/klee/stp/
+
+---
+
+./configure LLVM_VERSION_MAJOR="2" LLVM_VERSION_MINOR="9" LDFLAGS="-L/home/klee/minisat/build" --with-llvm=/home/klee/llvm29-master/ --with-llvm-build-mode=Release --with-stp=/home/klee/stp/build/
+
+ ./configure  LDFLAGS="-L/home/klee/libs/lib/"  --with-llvm=/home/klee/llvm29-master/  --with-stp=/home/klee/stp/build/ --with-llvm-build-mode=Release
+
+ ./configure  LDFLAGS="-L/home/klee/libs/lib/"  --with-llvm=/home/klee/llvm29-master/  --with-stp=/home/klee/stp-r940/install --with-llvm-build-mode=Release
+
+
+
+-------
+
+In the docker image, in order to use llvm-2.9 gcc and g++, the environment is changed as follows:
+
+basically, gcc refers to llvm-gcc2.9
+g++ refers to llvm-g++2.9
+cc refers to gcc
+c++ refers to g++
+
+
+sudo update-alternatives --install /usr/bin/gcc gcc /home/klee/llvm-gcc4.2-2.9-x86_64-linux/bin/llvm-gcc 10
+sudo update-alternatives --install /usr/bin/g++ g++ /home/klee/llvm-gcc4.2-2.9-x86_64-linux/bin/llvm-g++ 10
+sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
+sudo update-alternatives --set cc /usr/bin/gcc
+
+sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
+sudo update-alternatives --set c++ /usr/bin/g++
