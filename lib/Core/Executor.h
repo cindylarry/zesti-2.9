@@ -210,6 +210,10 @@ private:
   void transferToBasicBlock(llvm::BasicBlock *dst, 
 			    llvm::BasicBlock *src,
 			    ExecutionState &state);
+  bool callSelfDefMockFunction(ExecutionState &state, 
+			       KInstruction *target, 
+			       llvm::Function *function, 
+			       std::vector< ref<Expr> > &arguments);
 
   void callExternalFunction(ExecutionState &state,
                             KInstruction *target,

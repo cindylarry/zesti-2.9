@@ -106,6 +106,7 @@ namespace klee {
     HANDLER(handleDoChecks);
     HANDLER(handlePatchBegin);
     HANDLER(handlePatchEnd);
+    HANDLER(handleTypeMismatch);
 #undef HANDLER
   };
 } // End klee namespace

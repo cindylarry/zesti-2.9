@@ -66,6 +66,7 @@ HandlerInfo handlerInfo[] = {
 
   add("calloc", handleCalloc, true),
   add("free", handleFree, false),
+  add("tlApiFree", handleFree, false),
   add("klee_assume", handleAssume, false),
   add("klee_check_memory_access", handleCheckMemoryAccess, false),
   add("klee_get_valuef", handleGetValue, true),
@@ -90,7 +91,9 @@ HandlerInfo handlerInfo[] = {
   add("klee_warning_once", handleWarningOnce, false),
   add("klee_alias_function", handleAliasFunction, false),
   add("malloc", handleMalloc, true),
+  add("tlApiMalloc", handleMalloc, true),
   add("realloc", handleRealloc, true),
+  add("tlApiRealloc", handleRealloc, true),
 
   add("klee_enable_symbex", handleEnableSeeding, false),
   add("klee_disable_symbex", handleDisableSeeding, false),
@@ -117,6 +120,7 @@ HandlerInfo handlerInfo[] = {
   // operator new(unsigned long)
   add("_Znwm", handleNew, true),
 
+  add("__ubsan_handle_type_mismatch", handleTypeMismatch, false),
 #undef addDNR
 #undef add  
 };
@@ -791,3 +795,10 @@ void SpecialFunctionHandler::handlePatchEnd(ExecutionState &state,
   }
 }
 
+void SpecialFunctionHandler::handleTypeMismatch(ExecutionState &state,
+						KInstruction *target,
+						std::vector<ref<Expr> > &arguments) {
+  target->inst->dump(); 
+  //executor.terminateStateOnError(state, "type mismatch between arguments",
+  //                               Executor::Overflow);
+}

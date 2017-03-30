@@ -3108,6 +3108,57 @@ static std::set<std::string> okExternals(okExternalsList,
                                          okExternalsList + 
                                          (sizeof(okExternalsList)/sizeof(okExternalsList[0])));
 
+ static const char *mockFuncsList[] = { "sec_map",
+					"read_sfr_value", 
+					       "sec_unmap"
+ };
+ static std::set<std::string> mockFuncs(mockFuncsList, 
+					 mockFuncsList + 
+					(sizeof(mockFuncsList)/sizeof(mockFuncsList[0])));
+
+ bool Executor::callSelfDefMockFunction(ExecutionState &state, 
+					KInstruction *target, 
+					Function *function,
+					std::vector< ref<Expr> > &arguments) {
+   std::string fName = function->getName().str();
+
+   if (fName.find("tlApi") != std::string::npos 
+       && fName.find("tlApi") == 0) {
+     LLVM_TYPE_Q Type *resultType = target->inst->getType();
+     if (resultType != Type::getVoidTy(getGlobalContext())
+	 && resultType->isIntegerTy() ) {
+       ref<Expr> zeroExpr = klee::ConstantExpr::create(0, 32);
+       bindLocal(target, state, zeroExpr);
+     }
+
+     return true;
+   } else if (fName.find("drApi") != std::string::npos
+	      && fName.find("drApi") == 0) {
+     LLVM_TYPE_Q Type *resultType = target->inst->getType();
+     if (resultType != Type::getVoidTy(getGlobalContext())
+	 && resultType->isIntegerTy()) {
+       ref<Expr> zeroExpr = klee::ConstantExpr::create(0, 32);
+       bindLocal(target, state, zeroExpr);
+     }
+
+     return true;
+   } else {
+     if (mockFuncs.find(fName) != mockFuncs.end()) {
+       LLVM_TYPE_Q Type *resultType = target->inst->getType();
+       if (resultType != Type::getVoidTy(getGlobalContext())
+	   && resultType->isIntegerTy()) {
+	 ref<Expr> zeroExpr = klee::ConstantExpr::create(0, 32);
+	 bindLocal(target, state, zeroExpr);
+       }
+
+       return true;
+     }
+   }
+  
+   return false;       
+ }
+
+
 void Executor::callExternalFunction(ExecutionState &state,
                                     KInstruction *target,
                                     Function *function,
@@ -3122,6 +3173,10 @@ void Executor::callExternalFunction(ExecutionState &state,
     terminateStateOnError(state, "externals disallowed", "user.err");
     return;
   }
+
+  // check if mock functions want it
+  if (callSelfDefMockFunction(state, target, function, arguments)) 
+    return; 
 
   // normal external function handling path
   // allocate 128 bits for each argument (+return value) to support fp80's;
