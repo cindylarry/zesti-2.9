@@ -44,7 +44,7 @@
 #define HAVE_UNISTD_H 1
 
 /* Path to KLEE's uClibc */
-#define KLEE_UCLIBC "/home/klee/klee-uclibc"
+#define KLEE_UCLIBC ""
 
 /* LLVM version is release (instead of development) */
 #define LLVM_IS_RELEASE 1

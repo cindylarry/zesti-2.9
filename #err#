@@ -1,0 +1,136 @@
+1;3409;0cchecking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+checking type of operating system we're going to host on... 
+checking llvm source dir... /home/klee/llvm29-master
+checking llvm obj dir... /home/klee/llvm29-master
+checking llvm package version... 2.9
+checking llvm version major... 
+checking llvm version minor... 
+checking llvm is release version... 1
+checking llvm build mode... Release
+checking uclibc... no
+checking POSIX runtime... default (disabled, no uclibc)
+checking runtime configuration... Release+Asserts
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking sys/acl.h usability... no
+checking sys/acl.h presence... no
+checking for sys/acl.h... no
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking how to run the C++ preprocessor... g++ -E
+checking selinux/selinux.h usability... no
+checking selinux/selinux.h presence... no
+checking for selinux/selinux.h... no
+checking stp/c_interface.h usability... yes
+checking stp/c_interface.h presence... yes
+checking for stp/c_interface.h... yes
+checking for vc_setInterfaceFlags in -lstp... yes
+configure: creating ./config.status
+config.status: creating Makefile.config
+config.status: creating docs/doxygen.cfg
+config.status: creating include/klee/Config/config.h
+config.status: executing setup commands
+config.status: executing Makefile commands
+config.status: executing Makefile.common commands
+config.status: executing lib/Makefile commands
+config.status: executing runtime/Makefile commands
+config.status: executing test/Makefile commands
+config.status: executing test/Makefile.tests commands
+config.status: executing tools/Makefile commands
+config.status: executing unittests/Makefile commands
+make[1]: Entering directory `/home/klee/zesti-2.9/build/lib'
+make[2]: Entering directory `/home/klee/zesti-2.9/build/lib/Basic'
+make[2]: Entering directory `/home/klee/zesti-2.9/build/lib/Support'
+make[2]: Entering directory `/home/klee/zesti-2.9/build/lib/Module'
+make[2]: Entering directory `/home/klee/zesti-2.9/build/lib/Expr'
+llvm[2]: Compiling KTest.cpp for Release+Asserts build
+llvm[2]: Compiling Statistics.cpp for Release+Asserts build
+llvm[2]: Compiling RNG.cpp for Release+Asserts build
+llvm[2]: Compiling Time.cpp for Release+Asserts build
+llvm[2]: Compiling Timer.cpp for Release+Asserts build
+make[2]: Entering directory `/home/klee/zesti-2.9/build/lib/Solver'
+llvm[2]: Compiling TreeStream.cpp for Release+Asserts build
+make[2]: Entering directory `/home/klee/zesti-2.9/build/lib/Core'
+llvm[2]: Compiling Checks.cpp for Release+Asserts build
+llvm[2]: Compiling InstructionInfoTable.cpp for Release+Asserts build
+llvm[2]: Compiling IntrinsicCleaner.cpp for Release+Asserts build
+llvm[2]: Compiling KInstruction.cpp for Release+Asserts build
+llvm[2]: Compiling KModule.cpp for Release+Asserts build
+llvm[2]: Compiling Constraints.cpp for Release+Asserts build
+llvm[2]: Compiling LowerSwitch.cpp for Release+Asserts build
+llvm[2]: Compiling Expr.cpp for Release+Asserts build
+llvm[2]: Compiling CachingSolver.cpp for Release+Asserts build
+llvm[2]: Compiling AddressSpace.cpp for Release+Asserts build
+llvm[2]: Compiling CallPathManager.cpp for Release+Asserts build
+llvm[2]: Compiling Common.cpp for Release+Asserts build
+llvm[2]: Compiling Context.cpp for Release+Asserts build
+llvm[2]: Compiling CoreStats.cpp for Release+Asserts build
+llvm[2]: Compiling ExecutionState.cpp for Release+Asserts build
+llvm[2]: Building Release+Asserts Archive Library libkleeBasic.a
+make[2]: Leaving directory `/home/klee/zesti-2.9/build/lib/Basic'
+llvm[2]: Compiling Executor.cpp for Release+Asserts build
+llvm[2]: Compiling ModuleUtil.cpp for Release+Asserts build
+llvm[2]: Building Release+Asserts Archive Library libkleeSupport.a
+make[2]: Leaving directory `/home/klee/zesti-2.9/build/lib/Support'
+llvm[2]: Compiling Optimize.cpp for Release+Asserts build
+llvm[2]: Compiling ExecutorTimers.cpp for Release+Asserts build
+llvm[2]: Compiling ExecutorUtil.cpp for Release+Asserts build
+llvm[2]: Compiling PhiCleaner.cpp for Release+Asserts build
+llvm[2]: Compiling ExternalDispatcher.cpp for Release+Asserts build
+llvm[2]: Compiling CexCachingSolver.cpp for Release+Asserts build
+llvm[2]: Compiling RaiseAsm.cpp for Release+Asserts build
+llvm[2]: Compiling ExprBuilder.cpp for Release+Asserts build
+llvm[2]: Compiling ExprEvaluator.cpp for Release+Asserts build
+llvm[2]: Compiling ExprPPrinter.cpp for Release+Asserts build
+llvm[2]: Compiling ExprSMTLIBLetPrinter.cpp for Release+Asserts build
+llvm[2]: Compiling ImpliedValue.cpp for Release+Asserts build
+llvm[2]: Compiling Memory.cpp for Release+Asserts build
+llvm[2]: Compiling ExprSMTLIBPrinter.cpp for Release+Asserts build
+llvm[2]: Compiling ExprUtil.cpp for Release+Asserts build
+llvm[2]: Compiling MemoryManager.cpp for Release+Asserts build
+llvm[2]: Compiling ExprVisitor.cpp for Release+Asserts build
+llvm[2]: Compiling Lexer.cpp for Release+Asserts build
+llvm[2]: Compiling Parser.cpp for Release+Asserts build
+llvm[2]: Compiling Updates.cpp for Release+Asserts build
+llvm[2]: Compiling ConstantDivision.cpp for Release+Asserts build
+llvm[2]: Compiling FastCexSolver.cpp for Release+Asserts build
+llvm[2]: Building Release+Asserts Archive Library libkleeModule.a
+llvm[2]: Compiling IncompleteSolver.cpp for Release+Asserts build
+make[2]: Leaving directory `/home/klee/zesti-2.9/build/lib/Module'
+llvm[2]: Compiling IndependentSolver.cpp for Release+Asserts build
+llvm[2]: Compiling PCLoggingSolver.cpp for Release+Asserts build
+llvm[2]: Compiling QueryLoggingSolver.cpp for Release+Asserts build
+llvm[2]: Compiling SMTLIBLoggingSolver.cpp for Release+Asserts build
+llvm[2]: Compiling STPBuilder.cpp for Release+Asserts build
+llvm[2]: Compiling Solver.cpp for Release+Asserts build
+llvm[2]: Compiling SolverStats.cpp for Release+Asserts build
+llvm[2]: Compiling TimeLoggingSolver.cpp for Release+Asserts build
+make[2]: Leaving directory `/home/klee/zesti-2.9/build/lib/Core'
+llvm[2]: Building Release+Asserts Archive Library libkleaverExpr.a
+make[2]: Leaving directory `/home/klee/zesti-2.9/build/lib/Expr'
+llvm[2]: Building Release+Asserts Archive Library libkleaverSolver.a
+make[2]: Leaving directory `/home/klee/zesti-2.9/build/lib/Solver'
+make[1]: Leaving directory `/home/klee/zesti-2.9/build/lib'

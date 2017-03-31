@@ -3110,8 +3110,8 @@ static std::set<std::string> okExternals(okExternalsList,
 
  static const char *mockFuncsList[] = { "sec_map",
 					"read_sfr_value", 
-					       "sec_unmap"
- };
+					"sec_unmap",
+ "snprintf"};
  static std::set<std::string> mockFuncs(mockFuncsList, 
 					 mockFuncsList + 
 					(sizeof(mockFuncsList)/sizeof(mockFuncsList[0])));
